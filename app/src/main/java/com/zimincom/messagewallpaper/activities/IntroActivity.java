@@ -13,8 +13,7 @@ import butterknife.ButterKnife;
 
 public class IntroActivity extends Activity implements View.OnClickListener {
 
-    @BindView(R.id.textView)
-    TextView textView;
+    @BindView(R.id.textView) TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
