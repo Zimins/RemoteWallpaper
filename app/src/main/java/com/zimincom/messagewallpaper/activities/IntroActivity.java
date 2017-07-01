@@ -8,14 +8,19 @@ import android.widget.TextView;
 
 import com.zimincom.messagewallpaper.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class IntroActivity extends Activity implements View.OnClickListener {
+
+    @BindView(R.id.textView)
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-
-        TextView textView = (TextView) findViewById(R.id.textView);
+        ButterKnife.bind(this);
 
         textView.setOnClickListener(this);
 

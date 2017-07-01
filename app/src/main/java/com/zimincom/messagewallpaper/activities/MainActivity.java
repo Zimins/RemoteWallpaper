@@ -9,6 +9,8 @@ import com.zimincom.messagewallpaper.R;
 
 import java.io.IOException;
 
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
     Context context = this;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(context);
 
