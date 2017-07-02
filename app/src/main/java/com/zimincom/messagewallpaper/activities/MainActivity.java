@@ -1,12 +1,17 @@
 package com.zimincom.messagewallpaper.activities;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +27,7 @@ import static com.zimincom.messagewallpaper.R.id.imageView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static int REQUEST_LOAD_IMAGE = 100;
+    private static int REQUEST_READ_STORAGE = 200;
 
     Context context = this;
 
@@ -29,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // TODO: 2017. 7. 1. connect to server
     // TODO: 2017. 7. 1. upload image file to server
     // TODO: 2017. 7. 1. image notify when file uploaded
-    // TODO: 2017. 7. 1. file load in phone
+
     @BindView(R.id.loadImageButton) Button loadImageButton;
     @BindView(imageView) ImageView loadedImage;
 
@@ -62,8 +68,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadImageFromGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, REQUEST_LOAD_IMAGE);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, REQUEST_LOAD_IMAGE);
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    REQUEST_READ_STORAGE);
+        }
     }
 
     @Override
@@ -71,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_LOAD_IMAGE) {
+                // TODO: 2017. 7. 2. check READ_EXTERNAL_STORAGE
+
                 Uri selectedImage = data.getData();
                 String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
@@ -83,6 +99,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cursor.close();
 
                 loadedImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_READ_STORAGE) {
+            if (grantResults.length > 0) {
+                //permission granted
+            } else {
+                // notify you can't use service
             }
         }
     }
