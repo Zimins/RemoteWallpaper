@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Context context = this;
 
 
-    // TODO: 2017. 7. 1. connect to server
-    // TODO: 2017. 7. 1. upload image file to server
     // TODO: 2017. 7. 1. image notify when file uploaded
+    // TODO: 2017. 7. 10. config firebase 
 
     @BindView(R.id.loadImageButton) Button loadImageButton;
     @BindView(imageView) ImageView loadedImage;
