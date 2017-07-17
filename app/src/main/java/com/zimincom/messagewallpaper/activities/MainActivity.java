@@ -40,19 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int REQUEST_READ_STORAGE = 200;
 
     Context context = this;
-
-
-    private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseDatabase firebaseDatabase;
-    private FirebaseStorage firebaseStorage;
-
-    // TODO: 2017. 7. 1. image notify when file uploaded
-    // TODO: 2017. 7. 10. config firebase 
-
     @BindView(R.id.loadImageButton) Button loadImageButton;
     @BindView(R.id.logout) Button logoutButton;
     @BindView(imageView) ImageView loadedImage;
+    private FirebaseAuth firebaseAuth;
+
+    // TODO: 2017. 7. 1. image notify when file uploaded
+    // TODO: 2017. 7. 10. config firebase 
+    private FirebaseAuth.AuthStateListener authStateListener;
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivityForResult(AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setIsSmartLockEnabled(false)
+                            .setTheme(R.style.MainAuthTheme)
+                            .setLogo(R.drawable.androidvictory)
                             .setAvailableProviders(
                                     Arrays.asList(
                                             new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),

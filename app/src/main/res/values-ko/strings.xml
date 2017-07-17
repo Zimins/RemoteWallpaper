@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_quota_exceeded">There was a problem verifying your phone number</string>
+    <string name="welcome_back_email_header">환영합니다</string>
+    <string name="sign_in_default">로그인</string>
+</resources>
