@@ -35,10 +35,13 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 
     //firebase dependency
-    compile 'com.google.firebase:firebase-core:10.2.1'
-    compile 'com.google.firebase:firebase-database:10.2.1'
-    compile 'com.google.firebase:firebase-auth:10.2.1'
-    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.google.firebase:firebase-core:11.0.0'
+    compile 'com.google.firebase:firebase-database:11.0.0'
+    //firebase auth
+    compile 'com.google.firebase:firebase-auth:11.0.0'
+    compile 'com.google.android.gms:play-services-auth:11.0.0'
+
+    compile 'com.google.firebase:firebase-messaging:11.0.0'
     compile 'com.firebaseui:firebase-ui:2.0.1'
 
 }
