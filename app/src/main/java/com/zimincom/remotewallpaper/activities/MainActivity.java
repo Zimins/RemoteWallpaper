@@ -1,4 +1,4 @@
-package com.zimincom.messagewallpaper.activities;
+package com.zimincom.remotewallpaper.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -24,14 +24,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.zimincom.messagewallpaper.R;
+import com.zimincom.remotewallpaper.R;
 
 import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.zimincom.messagewallpaper.R.id.imageView;
+import static com.zimincom.remotewallpaper.R.id.imageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

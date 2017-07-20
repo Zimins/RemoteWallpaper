@@ -1,4 +1,4 @@
-package com.zimincom.messagewallpaper.activities;
+package com.zimincom.remotewallpaper.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.zimincom.messagewallpaper.R;
+import com.zimincom.remotewallpaper.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

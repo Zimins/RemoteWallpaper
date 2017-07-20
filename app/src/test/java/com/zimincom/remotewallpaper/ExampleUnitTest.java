@@ -1,4 +1,4 @@
-package com.zimincom.messagewallpaper;
+package com.zimincom.remotewallpaper;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.zimincom.messagewallpaper;
+package com.zimincom.remotewallpaper;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
